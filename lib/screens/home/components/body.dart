@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/constants.dart';
 import 'package:plant_app/screens/home/components/featured_plants.dart';
 import 'package:plant_app/screens/home/components/header_with_search_box.dart';
