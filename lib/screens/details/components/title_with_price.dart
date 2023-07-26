@@ -1,12 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:plant_app/constants.dart';
 
 class TitleWithPrice extends StatelessWidget {
   const TitleWithPrice({
-    super.key,
+    super.key, required this.title, required this.country, required this.price,
   });
-
+  final String title, country;
+  final int price;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,17 +17,14 @@ class TitleWithPrice extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: "Angelica\n",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium!
-                      .copyWith(
+                  text: "$title\n",
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                         color: kTextColor,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 TextSpan(
-                  text: "Russia",
+                  text: country,
                   style: TextStyle(
                     fontSize: 20,
                     color: kPrimaryColor.withOpacity(0.5),
@@ -39,7 +36,7 @@ class TitleWithPrice extends StatelessWidget {
           ),
           Spacer(),
           Text(
-            "\$440",
+            "\$$price",
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/details/components/buy_and_desc_btns.dart';
 import 'package:plant_app/screens/details/components/image_and_icons.dart';
 import 'package:plant_app/screens/details/components/title_with_price.dart';
 
@@ -14,7 +15,12 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           ImageAndIcons(size: size),
-          const TitleWithPrice(),
+          const TitleWithPrice(
+            country: "Russia",
+            title: "Angelica",
+            price: 440,
+          ),
+          BuyAndDescriptionBtns(size: size)
         ],
       ),
     );
