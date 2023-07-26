@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_app/constants.dart';
-import 'package:plant_app/screens/details/components/icon_card.dart';
+import 'package:plant_app/screens/details/components/image_and_icons.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -12,64 +12,37 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          ImageAndIcons(size: size),
           Padding(
-            padding: const EdgeInsets.only(
-              bottom: kDefaultPadding * 3,
-            ),
-            child: SizedBox(
-              height: size.height * 0.85,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: kDefaultPadding * 3),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: IconButton(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: kDefaultPadding),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: SvgPicture.asset(
-                                  "assets/icons/back_arrow.svg"),
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            child: Row(
+              children: [
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Angelica\n",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium!
+                            .copyWith(
+                              color: kTextColor,
+                              fontWeight: FontWeight.bold,
                             ),
-                          ),
-                          const Spacer(),
-                          const IconCard(icon: "assets/icons/sun.svg"),
-                          const IconCard(icon: "assets/icons/icon_2.svg"),
-                          const IconCard(icon: "assets/icons/icon_3.svg"),
-                          const IconCard(icon: "assets/icons/icon_4.svg"),
-                        ],
                       ),
-                    ),
+                      TextSpan(
+                        text: "Russia",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: kPrimaryColor.withOpacity(0.5),
+                          fontWeight: FontWeight.w300,
+                        ),
+                      )
+                    ],
                   ),
-                  Container(
-                    height: size.height * 0.9,
-                    width: size.width * 0.7,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(63),
-                          bottomLeft: Radius.circular(63)),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: const Offset(0, 10),
-                          blurRadius: 60,
-                          color: kPrimaryColor.withOpacity(0.29),
-                        )
-                      ],
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/img1.png"),
-                        fit: BoxFit.cover,
-                        alignment: Alignment.centerLeft,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                Spacer(),
+              ],
             ),
           ),
         ],
