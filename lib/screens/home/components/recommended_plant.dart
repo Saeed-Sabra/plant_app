@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/details/details_screen.dart';
 
 class RecommendedPlant extends StatelessWidget {
   const RecommendedPlant({
@@ -17,21 +18,36 @@ class RecommendedPlant extends StatelessWidget {
             image: "assets/images/image_1.png",
             country: "Russia",
             price: 440,
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const DetailsScreen()),
+              );
+            },
           ),
           RecommendedPlantCard(
             title: "Angelica",
             image: "assets/images/image_2.png",
             country: "Russia",
             price: 320,
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const DetailsScreen()),
+              );
+            },
           ),
           RecommendedPlantCard(
             title: "Samantha",
             image: "assets/images/image_3.png",
             country: "Russia",
             price: 250,
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const DetailsScreen()),
+              );
+            },
           ),
         ],
       ),
@@ -51,13 +67,13 @@ class RecommendedPlantCard extends StatelessWidget {
 
   final String image, title, country;
   final int price;
-  final Function press;
+  final void Function() press;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: press(),
+      onTap: press,
       child: Container(
         margin: const EdgeInsets.only(
           left: kDefaultPadding,
